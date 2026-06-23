@@ -1,0 +1,442 @@
+@import url("https://api.fontshare.com/v2/css?f[]=satoshi@900,800,700,600,500,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── BRAND TOKENS (theme-independent) ─────────────────────
+   Pumpkin  #FE7F2D  — primary accent, CTAs, highlights
+   Charcoal #233D4D  — ink, dark surfaces, headings on light
+──────────────────────────────────────────────────────────── */
+:root {
+    --pumpkin: #fe7f2d;
+    --pumpkin-deep: #d9591a;
+    --pumpkin-light: #ffb454;
+    --charcoal: #233d4d;
+    --charcoal-deep: #172a36;
+}
+
+/* ─── DARK THEME (default) ─────────────────────────────── */
+:root,
+[data-theme="dark"] {
+    --bg-base: #14222a;
+    --bg-surface: #1a2c37;
+    --bg-elevated: #1f3441;
+    --bg-card: #1c303c;
+    --border: rgba(255, 255, 255, 0.08);
+    --border-hover: rgba(255, 255, 255, 0.18);
+    --text-primary: #f4f7f8;
+    --text-secondary: #9fb1bd;
+    --text-muted: #708492;
+    --accent: #fe7f2d;
+    --accent-alt: #ffb454;
+    --accent-glow: rgba(254, 127, 45, 0.18);
+    --scrollbar-bg: #14222a;
+    --grain-opacity: 0.3;
+    --shadow-card: 0 20px 40px rgba(0, 0, 0, 0.5);
+    --on-accent: #172a36;
+}
+
+/* ─── LIGHT THEME ───────────────────────────────────────── */
+[data-theme="light"] {
+    --bg-base: #f7f4ef;
+    --bg-surface: #ffffff;
+    --bg-elevated: #efeae1;
+    --bg-card: #ffffff;
+    --border: rgba(35, 61, 77, 0.1);
+    --border-hover: rgba(35, 61, 77, 0.22);
+    --text-primary: #233d4d;
+    --text-secondary: #51697a;
+    --text-muted: #84939b;
+    --accent: #d9591a;
+    --accent-alt: #c47b00;
+    --accent-glow: rgba(217, 89, 26, 0.12);
+    --scrollbar-bg: #f7f4ef;
+    --grain-opacity: 0.14;
+    --shadow-card: 0 8px 32px rgba(35, 61, 77, 0.12);
+    --on-accent: #ffffff;
+}
+
+/* ─── RESET ─────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+    }
+}
+
+body {
+    font-family: "Satoshi", "Inter", sans-serif;
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+
+/* Inter is the auxiliary face — used for body copy, UI labels, and
+   anywhere text needs a slightly more neutral, legible register. */
+.font-aux,
+p,
+li,
+input,
+textarea,
+button {
+    font-family: "Inter", "Satoshi", sans-serif;
+}
+
+/* Headings, logo, and display numerals stay on Satoshi (primary). */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.font-display {
+    font-family: "Satoshi", "Inter", sans-serif;
+}
+
+:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+/* ─── SCROLLBAR ─────────────────────────────────────────── */
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--scrollbar-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 2px;
+}
+
+::selection {
+    background: var(--accent);
+    color: #fff;
+}
+
+/* ─── GRAIN ─────────────────────────────────────────────── */
+.grain::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 256px;
+    opacity: var(--grain-opacity);
+    mix-blend-mode: overlay;
+}
+
+/* ─── TYPOGRAPHY ────────────────────────────────────────── */
+.text-fire {
+    background: linear-gradient(135deg, var(--accent), var(--accent-alt));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ─── BUTTONS ───────────────────────────────────────────── */
+.btn-fire {
+    background: linear-gradient(135deg, var(--accent), var(--accent-alt));
+    color: var(--on-accent);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.btn-fire:hover {
+    opacity: 0.92;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px var(--accent-glow);
+}
+
+.btn-ghost {
+    border: 1.5px solid var(--border);
+    color: var(--text-secondary);
+    font-weight: 600;
+    transition:
+        border-color 0.2s,
+        color 0.2s,
+        background 0.2s;
+}
+
+.btn-ghost:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-glow);
+}
+
+/* ─── CARDS ─────────────────────────────────────────────── */
+.card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    transition:
+        box-shadow 0.3s ease,
+        transform 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: var(--shadow-card);
+    transform: translateY(-4px);
+    border-color: var(--border-hover);
+}
+
+/* ─── NAV ───────────────────────────────────────────────── */
+.nav-link {
+    position: relative;
+    color: var(--text-secondary);
+    font-weight: 500;
+    transition: color 0.2s;
+    font-size: 0.875rem;
+    font-family: "Inter", sans-serif;
+}
+
+.nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1.5px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-alt));
+    transition: width 0.25s ease;
+}
+
+.nav-link:hover {
+    color: var(--text-primary);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* ─── INPUTS ────────────────────────────────────────────── */
+.forge-input {
+    background: var(--bg-elevated);
+    border: 1.5px solid var(--border);
+    color: var(--text-primary);
+    border-radius: 0.75rem;
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+    font-family: "Inter", sans-serif;
+    transition: border-color 0.2s;
+    width: 100%;
+}
+
+.forge-input::placeholder {
+    color: var(--text-muted);
+}
+
+.forge-input:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+/* ─── DIVIDERS ──────────────────────────────────────────── */
+.divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+}
+
+/* ─── STAT ──────────────────────────────────────────────── */
+.stat-number {
+    font-family: "Satoshi", sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--accent), var(--accent-alt));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+}
+
+/* ─── MARQUEE ───────────────────────────────────────────── */
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.marquee-track {
+    animation: marquee 28s linear infinite;
+    display: flex;
+    width: max-content;
+}
+
+.marquee-track:hover {
+    animation-play-state: paused;
+}
+
+/* ─── ANIMATIONS ────────────────────────────────────────── */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.7s ease forwards;
+}
+
+/* ─── PAGE HERO UTILITY ─────────────────────────────────── */
+.page-hero {
+    padding-top: 10rem;
+    padding-bottom: 5rem;
+}
+
+/* ─── PROSE ─────────────────────────────────────────────── */
+.prose-forge h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+}
+
+.prose-forge h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-top: 1.75rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.prose-forge p {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.prose-forge ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.prose-forge ul li {
+    color: var(--text-secondary);
+    padding-left: 1.25rem;
+    position: relative;
+    line-height: 1.7;
+}
+
+.prose-forge ul li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.prose-forge a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* ─── THEME TOGGLE ──────────────────────────────────────── */
+.theme-toggle {
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1.5px solid var(--border);
+    background: var(--bg-elevated);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition:
+        border-color 0.2s,
+        color 0.2s,
+        background 0.2s;
+}
+
+.theme-toggle:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+/* ─── SECTION LABEL ─────────────────────────────────────── */
+.section-label {
+    font-family: "Inter", sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+    display: block;
+}
+
+/* ─── ART PANELS ─────────────────────────────────────────── */
+.art-panel {
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
+}
+
+.art-chip,
+.art-stat {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .art-panel {
+        transition:
+            transform 0.35s ease,
+            box-shadow 0.35s ease;
+    }
+
+    .art-panel:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 28px 70px rgba(0, 0, 0, 0.22);
+    }
+}
