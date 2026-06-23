@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+/* import type { Metadata } from 'next';
 import { requireAdminSession } from '@/lib/adminAuth';
 import { supabaseAdmin } from '@/lib/supabaseAdmin';
 import { formatDate, formatUSD, PROJECT_STATUS_LABEL } from '@/lib/utils';
@@ -80,6 +80,30 @@ export default async function AdminProjectsPage() {
           <p className="text-center py-12 text-sm" style={{ color: 'var(--text-muted)' }}>No projects yet. Create one above.</p>
         )}
       </div>
+    </div>
+  );
+}
+*/
+
+import type { Metadata } from "next";
+import { requireAdminSession } from "@/lib/adminAuth";
+import { supabaseAdmin } from "@/lib/supabaseAdmin";
+import { ProjectsClient } from "@/components/admin/ProjectsClient";
+
+export const metadata: Metadata = { title: "Projects — theforge Admin" };
+
+export default async function AdminProjectsPage() {
+  await requireAdminSession();
+  const [{ data: projects }, { data: clients }] = await Promise.all([
+    supabaseAdmin
+      .from("projects")
+      .select("*, clients(name, email)")
+      .order("created_at", { ascending: false }),
+    supabaseAdmin.from("clients").select("id, name, email").order("name"),
+  ]);
+  return (
+    <div className="p-8">
+      <ProjectsClient projects={projects ?? []} clients={clients ?? []} />
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+/* import type { Metadata } from 'next';
 import { requireAdminSession } from '@/lib/adminAuth';
 import { supabaseAdmin } from '@/lib/supabaseAdmin';
 import { formatDate, formatUSD, INVOICE_STATUS_LABEL } from '@/lib/utils';
@@ -32,7 +32,7 @@ export default async function AdminInvoicesPage() {
         </button>
       </div>
 
-      {/* Summary strip */}
+      {/* Summary strip *}
       <div className="grid sm:grid-cols-2 gap-4 mb-8">
         {[
           { label: 'Total Collected', value: formatUSD(totalPaid), color: '#10B981' },
@@ -93,6 +93,39 @@ export default async function AdminInvoicesPage() {
           <p className="text-center py-12 text-sm" style={{ color: 'var(--text-muted)' }}>No invoices yet.</p>
         )}
       </div>
+    </div>
+  );
+}
+ */
+
+import type { Metadata } from "next";
+import { requireAdminSession } from "@/lib/adminAuth";
+import { supabaseAdmin } from "@/lib/supabaseAdmin";
+import { InvoicesClient } from "@/components/admin/InvoicesClient";
+
+export const metadata: Metadata = { title: "Invoices — theforge Admin" };
+
+export default async function AdminInvoicesPage() {
+  await requireAdminSession();
+  const [{ data: invoices }, { data: clients }, { data: projects }] =
+    await Promise.all([
+      supabaseAdmin
+        .from("invoices")
+        .select("*, clients(name, email), projects(name)")
+        .order("created_at", { ascending: false }),
+      supabaseAdmin.from("clients").select("id, name").order("name"),
+      supabaseAdmin
+        .from("projects")
+        .select("id, name, client_id")
+        .order("name"),
+    ]);
+  return (
+    <div className="p-8">
+      <InvoicesClient
+        invoices={invoices ?? []}
+        clients={clients ?? []}
+        projects={projects ?? []}
+      />
     </div>
   );
 }

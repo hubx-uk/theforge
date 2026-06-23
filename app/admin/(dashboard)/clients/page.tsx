@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+/* import type { Metadata } from 'next';
 import { requireAdminSession } from '@/lib/adminAuth';
 import { supabaseAdmin } from '@/lib/supabaseAdmin';
 import { formatDate } from '@/lib/utils';
@@ -74,6 +74,27 @@ export default async function AdminClientsPage() {
           <p className="col-span-3 text-center py-12 text-sm" style={{ color: 'var(--text-muted)' }}>No clients yet.</p>
         )}
       </div>
+    </div>
+  );
+}
+ */
+
+import type { Metadata } from "next";
+import { requireAdminSession } from "@/lib/adminAuth";
+import { supabaseAdmin } from "@/lib/supabaseAdmin";
+import { ClientsClient } from "@/components/admin/ClientsClient";
+
+export const metadata: Metadata = { title: "Clients — theforge Admin" };
+
+export default async function AdminClientsPage() {
+  await requireAdminSession();
+  const { data: clients } = await supabaseAdmin
+    .from("clients")
+    .select("id, name, email, company, phone, created_at")
+    .order("created_at", { ascending: false });
+  return (
+    <div className="p-8">
+      <ClientsClient clients={clients ?? []} />
     </div>
   );
 }
