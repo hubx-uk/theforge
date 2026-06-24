@@ -38,15 +38,15 @@ export function PortalLoginForm() {
       <div>
         <label className="block text-xs font-bold uppercase tracking-widest mb-1.5" style={{ color: 'var(--text-muted)' }}>Email</label>
         <div className="relative">
-          <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4" style={{ color: 'var(--text-muted)' }} />
-          <input type="email" name="email" required placeholder="you@company.com" className="forge-input pl-10" />
+          <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 pointer-events-none" style={{ color: 'var(--text-muted)' }} />
+          <input type="email" name="email" required placeholder="you@company.com" className="forge-input" style={{ paddingLeft: '2.75rem' }} />
         </div>
       </div>
       <div>
         <label className="block text-xs font-bold uppercase tracking-widest mb-1.5" style={{ color: 'var(--text-muted)' }}>Password</label>
         <div className="relative">
-          <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4" style={{ color: 'var(--text-muted)' }} />
-          <input type={showPass ? 'text' : 'password'} name="password" required placeholder="••••••••" className="forge-input pl-10 pr-11" />
+          <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 pointer-events-none" style={{ color: 'var(--text-muted)' }} />
+          <input type={showPass ? 'text' : 'password'} name="password" required placeholder="••••••••" className="forge-input" style={{ paddingLeft: '2.75rem', paddingRight: '2.75rem' }} />
           <button type="button" onClick={() => setShowPass(!showPass)}
             className="absolute right-3.5 top-1/2 -translate-y-1/2" style={{ color: 'var(--text-muted)' }}>
             {showPass ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
