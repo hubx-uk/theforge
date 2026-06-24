@@ -242,22 +242,28 @@ export default function AboutPage() {
         <div className="grid md:grid-cols-3 gap-6">
           {[
             {
-              name: "Kai Brennan",
+              name: "Joshua Prince",
               role: "Founder & Design Lead",
-              initials: "KB",
-              bio: "Former agency creative director. 10 years shaping digital brands for startups and Fortune 500s.",
+              initials: "JP",
+              bio: "Former agency creative director. 3 years shaping digital brands for startups and SMBs.",
             },
             {
-              name: "Sola Adeyemi",
+              name: "Kelechi Egbuta",
               role: "Lead Engineer",
-              initials: "SA",
+              initials: "KE",
               bio: "Full-stack engineer with deep expertise in Next.js, Supabase, and scalable SaaS architecture.",
             },
             {
-              name: "Mara Lin",
+              name: "John Christopher",
               role: "Growth & SEO",
-              initials: "ML",
+              initials: "JC",
               bio: "Data-driven marketer who has grown organic traffic by 400%+ for multiple B2B SaaS companies.",
+            },
+            {
+              name: "Caleb Onyenaturuchi",
+              role: "Head of Operations",
+              initials: "CO",
+              bio: "",
             },
           ].map((member) => (
             <div

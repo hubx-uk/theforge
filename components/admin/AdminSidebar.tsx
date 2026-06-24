@@ -14,6 +14,7 @@ import {
   ChevronLeft,
   ChevronRight,
   MessageSquare,
+  FileText,
 } from "lucide-react";
 
 const NAV = [
@@ -22,6 +23,7 @@ const NAV = [
   { href: "/admin/clients", icon: Users, label: "Clients" },
   { href: "/admin/invoices", icon: Receipt, label: "Invoices" },
   { href: "/admin/enquiries", icon: MessageSquare, label: "Enquiries" },
+  { href: "/admin/blog", icon: FileText, label: "Blog" },
   { href: "/admin/settings", icon: Settings, label: "Settings" },
 ];
 
@@ -57,7 +59,7 @@ export function AdminSidebar() {
         borderColor: "var(--border)",
       }}
     >
-      {/* ── Logo + collapse toggle ── */}
+      {/* Logo */}
       <div
         className="flex items-center border-b shrink-0"
         style={{
@@ -119,7 +121,7 @@ export function AdminSidebar() {
         )}
       </div>
 
-      {/* ── Nav ── */}
+      {/* Nav */}
       <nav className="flex-1 flex flex-col gap-0.5 p-2 overflow-hidden">
         {NAV.map(({ href, icon: Icon, label }) => {
           const active =
@@ -167,7 +169,7 @@ export function AdminSidebar() {
         })}
       </nav>
 
-      {/* ── Bottom: expand + logout ── */}
+      {/* Bottom */}
       <div
         className="p-2 flex flex-col gap-0.5 border-t"
         style={{ borderColor: "var(--border)" }}
