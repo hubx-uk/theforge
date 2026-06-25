@@ -5,8 +5,8 @@ const DETAILS = [
   {
     icon: "✉️",
     label: "Email",
-    value: "hello@theforge.io",
-    href: "mailto:hello@theforge.io",
+    value: "hello@theforge.ng",
+    href: "mailto:hello@theforge.ng",
   },
   {
     icon: "💬",

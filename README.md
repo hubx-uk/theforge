@@ -119,7 +119,7 @@ Supabase/Stripe credentials.
 
 | Portal | Email | Password |
 |--------|-------|----------|
-| Admin (`/admin/login`) | `admin@theforge.io` | `ForgeAdmin#2026` |
+| Admin (`/admin/login`) | `admin@theforge.ng` | `ForgeAdmin#2026` |
 | Client (`/portal/login`) | `client@jovico.world` | `ClientDemo#2026` |
 
 ### 4. Set up Stripe

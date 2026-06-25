@@ -227,7 +227,7 @@ export default function CTA() {
               style={{ color: "var(--accent)" }}
             >
               {errorMsg ||
-                "Something went wrong — email us at hello@theforge.io"}
+                "Something went wrong — email us at hello@theforge.ng"}
             </p>
           )}
         </form>

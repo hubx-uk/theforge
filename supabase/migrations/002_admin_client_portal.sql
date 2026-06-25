@@ -107,9 +107,9 @@ revoke all on table invoices from anon, authenticated;
 
 -- ── Demo seed data ─────────────────────────────────────────────
 -- Default studio login — CHANGE THIS PASSWORD after first login via
--- /admin/settings. Email: admin@theforge.io  Password: ForgeAdmin#2026
+-- /admin/settings. Email: admin@theforge.ng  Password: ForgeAdmin#2026
 insert into admins (name, email, password_hash, role)
-values ('Forge Admin', 'admin@theforge.io', '$2a$12$P7YlyILQ5RHn/68Bor7Rf.wRL0AHsD6t.GWK1IG1u9L27Nzet171m', 'owner')
+values ('Forge Admin', 'admin@theforge.ng', '$2a$12$P7YlyILQ5RHn/68Bor7Rf.wRL0AHsD6t.GWK1IG1u9L27Nzet171m', 'owner')
 on conflict (email) do nothing;
 
 -- Demo client login so you can preview /portal — Email: client@jovico.world

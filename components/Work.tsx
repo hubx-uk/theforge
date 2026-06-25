@@ -1867,7 +1867,7 @@ export default async function Work() {
     .order("sort_order");
 
   // Graceful fallback if table doesn't exist yet
-  const list: CaseStudy[] = error ? [] : (projects ?? []);
+  const list: CaseStudy[] = error ? [] : (projects.slice(0, 4) ?? []);
 
   return (
     <section className="py-28" style={{ background: "var(--bg-surface)" }}>

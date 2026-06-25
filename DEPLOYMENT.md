@@ -67,7 +67,7 @@ Migration `002_admin_client_portal.sql` inserts a working demo workspace:
 
 | Area | Login | Password |
 | --- | --- | --- |
-| Admin at `/admin/login` | `admin@theforge.io` | `ForgeAdmin#2026` |
+| Admin at `/admin/login` | `admin@theforge.ng` | `ForgeAdmin#2026` |
 | Client at `/portal/login` | `client@jovico.world` | `ClientDemo#2026` |
 
 It also creates the Jovico World demo project, milestones, updates, and invoices. The account inserts are conflict-safe, and a migration is applied only once by Supabase.
