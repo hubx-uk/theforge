@@ -336,7 +336,7 @@ export function ClientsClient({ clients }: { clients: ClientRow[] }) {
 
       <Modal
         open={modalOpen}
-        onClose={closeModal}
+        onCloseAction={closeModal}
         title={editing ? "Edit Client" : "Add Client"}
       >
         <ClientForm client={editing ?? undefined} onSuccess={onSuccess} />

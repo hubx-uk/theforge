@@ -242,28 +242,58 @@ export default function AboutPage() {
         <div className="grid md:grid-cols-3 gap-6">
           {[
             {
-              name: "Joshua Prince",
-              role: "Founder & Design Lead",
-              initials: "JP",
-              bio: "Former agency creative director. 3 years shaping digital brands for startups and SMBs.",
+              name: "Praise Karachi",
+              role: "Creative Director",
+              initials: "PK",
+              bio: " Owns the visual identity, brand systems, and final sign-off before every launch.",
             },
             {
               name: "Kelechi Egbuta",
-              role: "Lead Engineer",
+              role: "Full-Stack Engineer",
               initials: "KE",
-              bio: "Full-stack engineer with deep expertise in Next.js, Supabase, and scalable SaaS architecture.",
-            },
-            {
-              name: "John Christopher",
-              role: "Growth & SEO",
-              initials: "JC",
-              bio: "Data-driven marketer who has grown organic traffic by 400%+ for multiple B2B SaaS companies.",
+              bio: "Turns Project Specs into working, deployed solutions using the most appropriate tech stack.",
             },
             {
               name: "Caleb Onyenaturuchi",
-              role: "Head of Operations",
+              role: "Project Operations Lead",
               initials: "CO",
-              bio: "",
+              bio: "Keeps timelines, revisions, and resourcing on track before scope creep turns problematic.",
+            },
+            {
+              name: "John Christopher",
+              role: "Sales & Partnerships Lead",
+              initials: "JC",
+              bio: "Qualifies inbound leads, runs discovery calls, negotiates pricing, and builds referral partnerships.",
+            },
+            {
+              name: "Joshua Prince",
+              role: "Client Success Manager",
+              initials: "JP",
+              bio: "Turns signed contracts into kickoff calls through onboarding, scope management, and communication.",
+            },
+            {
+              name: "Chioma Favor",
+              role: "Brand & Content Strategist",
+              initials: "CF",
+              bio: "Writes everything clients read: blog posts, case studies, proposals, and brand voice.",
+            },
+            {
+              name: "Marvelous Miracle",
+              role: "E-Commerce & Conversion Specialist",
+              initials: "MM",
+              bio: "Optimizes Stripe Checkout, cart psychology, and upsells for client storefronts that convert.",
+            },
+            {
+              name: "Deborah Bennett",
+              role: "Payments & Infrastructure Lead",
+              initials: "DB",
+              bio: "Owns Stripe billing, webhooks, and the infrastructure that keeps everything running smoothly.",
+            },
+            {
+              name: "Joseph Karachi",
+              role: "Growth & SEO Lead",
+              initials: "JK",
+              bio: "Drives organic acquisition through technical SEO, content strategy, and Core Web Vitals.",
             },
           ].map((member) => (
             <div

@@ -314,7 +314,7 @@ export function EnquiriesClient({ enquiries }: { enquiries: Enquiry[] }) {
       </div>
 
       {/* ── Detail modal ── */}
-      <Modal open={!!selected} onClose={closeModal} title="Enquiry" wide>
+      <Modal open={!!selected} onCloseAction={closeModal} title="Enquiry" wide>
         {selected && (
           <div className="space-y-5">
             {/* Contact info */}

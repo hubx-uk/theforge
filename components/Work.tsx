@@ -1,6 +1,11 @@
 import Link from "next/link";
+import { supabaseAdmin } from "@/lib/supabaseAdmin";
+import type React from "react";
 
-/* ─── Unique per-project thumbnail illustrations ─────────── */
+/* ─── Per-project SVG thumbnails (keyed by slug) ────────────
+   These stay local since they are bespoke illustrations —
+   only the project metadata comes from Supabase.
+─────────────────────────────────────────────────────────── */
 
 function MeridianThumbnail() {
   return (
@@ -10,9 +15,7 @@ function MeridianThumbnail() {
       xmlns="http://www.w3.org/2000/svg"
       className="absolute inset-0 w-full h-full"
     >
-      {/* bg */}
       <rect width="560" height="240" fill="#12122a" />
-      {/* sidebar */}
       <rect width="108" height="240" fill="#0e0e22" />
       <rect
         x="16"
@@ -87,7 +90,6 @@ function MeridianThumbnail() {
         fill="#4F46E5"
         opacity="0.8"
       />
-      {/* stat tiles */}
       <rect x="124" y="16" width="128" height="58" rx="10" fill="#1a1a3e" />
       <rect
         x="138"
@@ -145,7 +147,6 @@ function MeridianThumbnail() {
         fill="#818CF8"
         opacity="0.85"
       />
-      {/* bar chart */}
       <rect x="124" y="90" width="270" height="136" rx="12" fill="#1a1a3e" />
       <rect
         x="140"
@@ -202,7 +203,6 @@ function MeridianThumbnail() {
         fill="#4F46E5"
         opacity="0.85"
       />
-      {/* right sparkline panel */}
       <rect x="408" y="90" width="136" height="62" rx="10" fill="#1a1a3e" />
       <rect
         x="422"
@@ -222,7 +222,6 @@ function MeridianThumbnail() {
         strokeLinejoin="round"
       />
       <circle cx="520" cy="108" r="3" fill="#4F46E5" />
-      {/* right activity panel */}
       <rect x="408" y="164" width="136" height="62" rx="10" fill="#1a1a3e" />
       <rect
         x="422"
@@ -264,7 +263,7 @@ function MeridianThumbnail() {
   );
 }
 
-function RovaThumbnail() {
+function JosrenThumbnail() {
   return (
     <svg
       viewBox="0 0 560 240"
@@ -273,7 +272,6 @@ function RovaThumbnail() {
       className="absolute inset-0 w-full h-full"
     >
       <rect width="560" height="240" fill="#0a160b" />
-      {/* top nav */}
       <rect width="560" height="36" fill="#0d1c0e" />
       <rect
         x="20"
@@ -311,7 +309,6 @@ function RovaThumbnail() {
         fill="white"
         opacity="0.18"
       />
-      {/* cart */}
       <rect
         x="512"
         y="10"
@@ -330,7 +327,6 @@ function RovaThumbnail() {
         fill="#16A34A"
         opacity="0.85"
       />
-      {/* product grid 2×2 */}
       <rect x="16" y="48" width="124" height="88" rx="8" fill="#14261a" />
       <rect
         x="16"
@@ -368,7 +364,6 @@ function RovaThumbnail() {
         fill="white"
         opacity="0.12"
       />
-
       <rect x="152" y="48" width="124" height="88" rx="8" fill="#14261a" />
       <rect
         x="152"
@@ -406,7 +401,6 @@ function RovaThumbnail() {
         fill="white"
         opacity="0.12"
       />
-
       <rect x="16" y="148" width="124" height="88" rx="8" fill="#14261a" />
       <rect
         x="16"
@@ -426,64 +420,7 @@ function RovaThumbnail() {
         fill="#16A34A"
         opacity="0.5"
       />
-      <rect
-        x="30"
-        y="218"
-        width="70"
-        height="4"
-        rx="2"
-        fill="white"
-        opacity="0.22"
-      />
-      <rect
-        x="30"
-        y="226"
-        width="44"
-        height="4"
-        rx="2"
-        fill="white"
-        opacity="0.12"
-      />
-
       <rect x="152" y="148" width="124" height="88" rx="8" fill="#14261a" />
-      <rect
-        x="152"
-        y="148"
-        width="124"
-        height="60"
-        rx="8"
-        fill="#14532d"
-        opacity="0.45"
-      />
-      <rect
-        x="166"
-        y="160"
-        width="60"
-        height="4"
-        rx="2"
-        fill="#16A34A"
-        opacity="0.5"
-      />
-      <rect
-        x="166"
-        y="218"
-        width="70"
-        height="4"
-        rx="2"
-        fill="white"
-        opacity="0.22"
-      />
-      <rect
-        x="166"
-        y="226"
-        width="44"
-        height="4"
-        rx="2"
-        fill="white"
-        opacity="0.12"
-      />
-
-      {/* right: featured product + CTA */}
       <rect x="294" y="48" width="250" height="178" rx="10" fill="#14261a" />
       <rect
         x="294"
@@ -493,16 +430,6 @@ function RovaThumbnail() {
         rx="10"
         fill="#16A34A"
         opacity="0.16"
-      />
-      {/* big product label lines */}
-      <rect
-        x="312"
-        y="74"
-        width="80"
-        height="5"
-        rx="2.5"
-        fill="white"
-        opacity="0.18"
       />
       <rect
         x="312"
@@ -515,16 +442,6 @@ function RovaThumbnail() {
       />
       <rect
         x="312"
-        y="102"
-        width="100"
-        height="5"
-        rx="2.5"
-        fill="white"
-        opacity="0.18"
-      />
-      {/* price */}
-      <rect
-        x="312"
         y="172"
         width="60"
         height="10"
@@ -532,7 +449,6 @@ function RovaThumbnail() {
         fill="#16A34A"
         opacity="0.9"
       />
-      {/* Add to bag button */}
       <rect x="312" y="190" width="200" height="26" rx="13" fill="#16A34A" />
       <rect
         x="350"
@@ -593,7 +509,6 @@ function BlueshiftThumbnail() {
       className="absolute inset-0 w-full h-full"
     >
       <rect width="560" height="252" fill="#060f1a" />
-      {/* toolbar */}
       <rect x="16" y="14" width="180" height="24" rx="7" fill="#0f1f2e" />
       <rect
         x="28"
@@ -622,8 +537,7 @@ function BlueshiftThumbnail() {
         fill="white"
         opacity="0.9"
       />
-      {/* table header */}
-      <rect x="16" y="52" width="528" height="32" rx="0" fill="#0d1e2c" />
+      <rect x="16" y="52" width="528" height="32" fill="#0d1e2c" />
       <rect
         x="76"
         y="62"
@@ -660,7 +574,6 @@ function BlueshiftThumbnail() {
         fill="white"
         opacity="0.28"
       />
-      {/* rows */}
       {rows.map((r, i) => (
         <g key={i}>
           {r.highlight && (
@@ -735,13 +648,11 @@ function BlueshiftThumbnail() {
           />
         </g>
       ))}
-      {/* pagination */}
-      <rect x="200" y="246" width="160" height="1" fill="transparent" />
     </svg>
   );
 }
 
-function AxiomThumbnail() {
+function AxiomsThumbnail() {
   const swatches = ["#F59E0B", "#D97706", "#92400E", "#1C1917", "#F5F5F4"];
   return (
     <svg
@@ -751,8 +662,6 @@ function AxiomThumbnail() {
       className="absolute inset-0 w-full h-full"
     >
       <rect width="560" height="240" fill="#140d00" />
-      {/* large lettermark — left half */}
-      {/* "A" shape: two diagonal rects + crossbar */}
       <rect
         x="40"
         y="30"
@@ -782,7 +691,6 @@ function AxiomThumbnail() {
         fill="#F59E0B"
         opacity="0.7"
       />
-      {/* right half: type specimen */}
       <rect x="236" y="1" width="1" height="238" fill="white" opacity="0.06" />
       <rect
         x="254"
@@ -820,9 +728,7 @@ function AxiomThumbnail() {
         fill="white"
         opacity="0.22"
       />
-      {/* divider */}
       <rect x="254" y="118" width="280" height="1" fill="white" opacity="0.1" />
-      {/* weight specimen */}
       <rect
         x="254"
         y="130"
@@ -850,7 +756,6 @@ function AxiomThumbnail() {
         fill="white"
         opacity="0.18"
       />
-      {/* swatches */}
       <rect
         x="254"
         y="182"
@@ -870,7 +775,6 @@ function AxiomThumbnail() {
           fill={c}
         />
       ))}
-      {/* accent bottom bar */}
       <rect
         x="40"
         y="225"
@@ -909,7 +813,6 @@ function VertexThumbnail() {
       className="absolute inset-0 w-full h-full"
     >
       <rect width="560" height="240" fill="#0c0c1e" />
-      {/* ambient glow blobs */}
       <ellipse
         cx="280"
         cy="120"
@@ -927,7 +830,6 @@ function VertexThumbnail() {
         fill="#8B5CF6"
         opacity="0.07"
       />
-      {/* edges */}
       {edges.map(([a, b], i) => (
         <line
           key={i}
@@ -941,7 +843,6 @@ function VertexThumbnail() {
           strokeDasharray="5 4"
         />
       ))}
-      {/* node halos */}
       {nodes.map((n, i) => (
         <circle
           key={i}
@@ -952,7 +853,6 @@ function VertexThumbnail() {
           opacity="0.1"
         />
       ))}
-      {/* node circles */}
       {nodes.map((n, i) => (
         <circle
           key={i}
@@ -965,11 +865,9 @@ function VertexThumbnail() {
           opacity="0.9"
         />
       ))}
-      {/* node dots */}
       {nodes.map((n, i) => (
         <circle key={i} cx={n.cx} cy={n.cy} r="4" fill="#A78BFA" />
       ))}
-      {/* step label boxes */}
       <rect
         x="28"
         y="194"
@@ -999,7 +897,6 @@ function VertexThumbnail() {
         fill="white"
         opacity="0.18"
       />
-
       <rect
         x="228"
         y="194"
@@ -1029,7 +926,6 @@ function VertexThumbnail() {
         fill="white"
         opacity="0.18"
       />
-
       <rect
         x="428"
         y="194"
@@ -1059,8 +955,6 @@ function VertexThumbnail() {
         fill="white"
         opacity="0.18"
       />
-
-      {/* arrows */}
       <polyline
         points="185,120 230,120"
         stroke="#8B5CF6"
@@ -1091,26 +985,12 @@ function VertexThumbnail() {
   );
 }
 
-function CobaltThumbnail() {
+function HubxThumbnail() {
   const kpis = [
-    { label: "Revenue", value: "£2.4M", trend: "+18%", up: true, x: 16, y: 52 },
-    {
-      label: "Close Rate",
-      value: "47%",
-      trend: "+6pp",
-      up: true,
-      x: 286,
-      y: 52,
-    },
-    {
-      label: "Pipeline",
-      value: "3.2×",
-      trend: "Cov.",
-      up: true,
-      x: 16,
-      y: 148,
-    },
-    { label: "NPS", value: "72", trend: "+4pts", up: true, x: 286, y: 148 },
+    { x: 16, y: 52 },
+    { x: 286, y: 52 },
+    { x: 16, y: 148 },
+    { x: 286, y: 148 },
   ];
   return (
     <svg
@@ -1120,7 +1000,6 @@ function CobaltThumbnail() {
       className="absolute inset-0 w-full h-full"
     >
       <rect width="560" height="244" fill="#050f14" />
-      {/* top bar */}
       <rect width="560" height="38" fill="#081820" />
       <rect
         x="16"
@@ -1158,7 +1037,6 @@ function CobaltThumbnail() {
         fill="white"
         opacity="0.9"
       />
-      {/* KPI tiles */}
       {kpis.map((k, i) => (
         <g key={i}>
           <rect
@@ -1172,7 +1050,6 @@ function CobaltThumbnail() {
             strokeWidth="0.75"
             opacity="0.8"
           />
-          {/* label */}
           <rect
             x={k.x + 16}
             y={k.y + 16}
@@ -1182,7 +1059,6 @@ function CobaltThumbnail() {
             fill="white"
             opacity="0.28"
           />
-          {/* value — thick block */}
           <rect
             x={k.x + 16}
             y={k.y + 30}
@@ -1192,7 +1068,6 @@ function CobaltThumbnail() {
             fill="#14B8A6"
             opacity="0.75"
           />
-          {/* trend pill */}
           <rect
             x={k.x + 16}
             y={k.y + 58}
@@ -1211,7 +1086,6 @@ function CobaltThumbnail() {
             fill="#14B8A6"
             opacity="0.7"
           />
-          {/* small bar chart */}
           <rect
             x={k.x + 180}
             y={k.y + 50}
@@ -1249,73 +1123,752 @@ function CobaltThumbnail() {
           />
         </g>
       ))}
-      {/* bottom divider label */}
+    </svg>
+  );
+}
+
+function JovicoThumbnail() {
+  return (
+    <svg
+      viewBox="0 0 560 240"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="absolute inset-0 w-full h-full"
+    >
+      <rect width="560" height="240" fill="#0f1a0c" />
+      {/* Top nav */}
+      <rect width="560" height="40" fill="#152010" />
+      <rect
+        x="20"
+        y="14"
+        width="70"
+        height="8"
+        rx="4"
+        fill="#FE7F2D"
+        opacity="0.9"
+      />
+      <rect
+        x="200"
+        y="16"
+        width="40"
+        height="5"
+        rx="2.5"
+        fill="white"
+        opacity="0.2"
+      />
+      <rect
+        x="254"
+        y="16"
+        width="40"
+        height="5"
+        rx="2.5"
+        fill="white"
+        opacity="0.2"
+      />
+      <rect
+        x="308"
+        y="16"
+        width="40"
+        height="5"
+        rx="2.5"
+        fill="white"
+        opacity="0.2"
+      />
+      <rect
+        x="490"
+        y="12"
+        width="54"
+        height="18"
+        rx="9"
+        fill="#FE7F2D"
+        opacity="0.85"
+      />
+      <rect
+        x="500"
+        y="17"
+        width="34"
+        height="5"
+        rx="2.5"
+        fill="white"
+        opacity="0.9"
+      />
+      {/* Hero product area */}
+      <rect x="16" y="56" width="256" height="168" rx="10" fill="#1c2e14" />
       <rect
         x="16"
-        y="240"
-        width="528"
-        height="1"
-        fill="#14B8A6"
+        y="56"
+        width="256"
+        height="100"
+        rx="10"
+        fill="#FE7F2D"
+        opacity="0.12"
+      />
+      <rect
+        x="32"
+        y="80"
+        width="100"
+        height="7"
+        rx="3.5"
+        fill="white"
+        opacity="0.6"
+      />
+      <rect
+        x="32"
+        y="94"
+        width="160"
+        height="12"
+        rx="4"
+        fill="white"
+        opacity="0.85"
+      />
+      <rect
+        x="32"
+        y="114"
+        width="120"
+        height="5"
+        rx="2.5"
+        fill="white"
+        opacity="0.3"
+      />
+      <rect
+        x="32"
+        y="178"
+        width="80"
+        height="10"
+        rx="5"
+        fill="#FE7F2D"
+        opacity="0.9"
+      />
+      <rect
+        x="32"
+        y="196"
+        width="210"
+        height="22"
+        rx="11"
+        fill="#FE7F2D"
+        opacity="0.8"
+      />
+      {/* Product grid right */}
+      <rect x="284" y="56" width="128" height="78" rx="8" fill="#1c2e14" />
+      <rect
+        x="284"
+        y="56"
+        width="128"
+        height="46"
+        rx="8"
+        fill="#FE7F2D"
+        opacity="0.1"
+      />
+      <rect
+        x="296"
+        y="116"
+        width="80"
+        height="5"
+        rx="2.5"
+        fill="white"
+        opacity="0.3"
+      />
+      <rect
+        x="296"
+        y="124"
+        width="56"
+        height="5"
+        rx="2.5"
+        fill="white"
+        opacity="0.18"
+      />
+      <rect x="424" y="56" width="120" height="78" rx="8" fill="#1c2e14" />
+      <rect
+        x="424"
+        y="56"
+        width="120"
+        height="46"
+        rx="8"
+        fill="#FE7F2D"
+        opacity="0.15"
+      />
+      <rect
+        x="436"
+        y="116"
+        width="80"
+        height="5"
+        rx="2.5"
+        fill="white"
+        opacity="0.3"
+      />
+      <rect x="284" y="146" width="128" height="78" rx="8" fill="#1c2e14" />
+      <rect
+        x="284"
+        y="146"
+        width="128"
+        height="46"
+        rx="8"
+        fill="#FE7F2D"
         opacity="0.08"
+      />
+      <rect
+        x="296"
+        y="206"
+        width="80"
+        height="5"
+        rx="2.5"
+        fill="white"
+        opacity="0.3"
+      />
+      <rect x="424" y="146" width="120" height="78" rx="8" fill="#1c2e14" />
+      <rect
+        x="436"
+        y="206"
+        width="80"
+        height="5"
+        rx="2.5"
+        fill="white"
+        opacity="0.3"
       />
     </svg>
   );
 }
 
-/* ─── Project data ─────────────────────────────────────── */
+function FabricaThumbnail() {
+  return (
+    <svg
+      viewBox="0 0 560 240"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="absolute inset-0 w-full h-full"
+    >
+      <rect width="560" height="240" fill="#0d1117" />
+      {/* Sidebar */}
+      <rect width="130" height="240" fill="#0a0f15" />
+      <rect
+        x="14"
+        y="20"
+        width="60"
+        height="7"
+        rx="3.5"
+        fill="#D9591A"
+        opacity="0.9"
+      />
+      <rect
+        x="14"
+        y="48"
+        width="100"
+        height="5"
+        rx="2.5"
+        fill="white"
+        opacity="0.1"
+      />
+      <rect
+        x="14"
+        y="62"
+        width="90"
+        height="5"
+        rx="2.5"
+        fill="white"
+        opacity="0.18"
+      />
+      <rect x="0" y="58" width="3" height="19" rx="1.5" fill="#D9591A" />
+      <rect
+        x="14"
+        y="76"
+        width="80"
+        height="5"
+        rx="2.5"
+        fill="white"
+        opacity="0.1"
+      />
+      <rect
+        x="14"
+        y="90"
+        width="70"
+        height="5"
+        rx="2.5"
+        fill="white"
+        opacity="0.1"
+      />
+      <rect
+        x="14"
+        y="104"
+        width="85"
+        height="5"
+        rx="2.5"
+        fill="white"
+        opacity="0.1"
+      />
+      {/* Main content */}
+      <rect x="146" y="16" width="398" height="32" rx="8" fill="#141c24" />
+      <rect
+        x="160"
+        y="25"
+        width="80"
+        height="5"
+        rx="2.5"
+        fill="white"
+        opacity="0.2"
+      />
+      <rect
+        x="480"
+        y="20"
+        width="50"
+        height="22"
+        rx="7"
+        fill="#D9591A"
+        opacity="0.8"
+      />
+      <rect
+        x="490"
+        y="25"
+        width="30"
+        height="5"
+        rx="2.5"
+        fill="white"
+        opacity="0.9"
+      />
+      {/* Project cards */}
+      <rect x="146" y="60" width="188" height="80" rx="8" fill="#141c24" />
+      <rect
+        x="160"
+        y="74"
+        width="80"
+        height="5"
+        rx="2.5"
+        fill="#D9591A"
+        opacity="0.6"
+      />
+      <rect
+        x="160"
+        y="86"
+        width="120"
+        height="7"
+        rx="3.5"
+        fill="white"
+        opacity="0.55"
+      />
+      <rect
+        x="160"
+        y="100"
+        width="90"
+        height="4"
+        rx="2"
+        fill="white"
+        opacity="0.2"
+      />
+      <rect
+        x="160"
+        y="120"
+        width="50"
+        height="12"
+        rx="6"
+        fill="#D9591A"
+        opacity="0.25"
+      />
+      <rect
+        x="166"
+        y="124"
+        width="36"
+        height="4"
+        rx="2"
+        fill="#D9591A"
+        opacity="0.8"
+      />
+      <rect x="346" y="60" width="198" height="80" rx="8" fill="#141c24" />
+      <rect
+        x="360"
+        y="74"
+        width="80"
+        height="5"
+        rx="2.5"
+        fill="#D9591A"
+        opacity="0.6"
+      />
+      <rect
+        x="360"
+        y="86"
+        width="140"
+        height="7"
+        rx="3.5"
+        fill="white"
+        opacity="0.55"
+      />
+      <rect
+        x="360"
+        y="100"
+        width="90"
+        height="4"
+        rx="2"
+        fill="white"
+        opacity="0.2"
+      />
+      <rect
+        x="360"
+        y="120"
+        width="60"
+        height="12"
+        rx="6"
+        fill="#D9591A"
+        opacity="0.2"
+      />
+      <rect
+        x="366"
+        y="124"
+        width="46"
+        height="4"
+        rx="2"
+        fill="#D9591A"
+        opacity="0.7"
+      />
+      {/* Quote builder */}
+      <rect x="146" y="152" width="398" height="76" rx="8" fill="#141c24" />
+      <rect
+        x="160"
+        y="164"
+        width="100"
+        height="5"
+        rx="2.5"
+        fill="white"
+        opacity="0.25"
+      />
+      <rect
+        x="160"
+        y="178"
+        width="340"
+        height="8"
+        rx="4"
+        fill="white"
+        opacity="0.08"
+      />
+      <rect
+        x="160"
+        y="178"
+        width="210"
+        height="8"
+        rx="4"
+        fill="#D9591A"
+        opacity="0.4"
+      />
+      <rect
+        x="160"
+        y="194"
+        width="80"
+        height="4"
+        rx="2"
+        fill="white"
+        opacity="0.18"
+      />
+      <rect
+        x="440"
+        y="192"
+        width="90"
+        height="22"
+        rx="7"
+        fill="#D9591A"
+        opacity="0.8"
+      />
+      <rect
+        x="452"
+        y="198"
+        width="66"
+        height="5"
+        rx="2.5"
+        fill="white"
+        opacity="0.9"
+      />
+    </svg>
+  );
+}
 
-const PROJECTS: Array<{
+function ManellaThumbnail() {
+  return (
+    <svg
+      viewBox="0 0 560 240"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="absolute inset-0 w-full h-full"
+    >
+      <rect width="560" height="240" fill="#0a0a14" />
+      {/* Top nav */}
+      <rect width="560" height="38" fill="#0d0d1a" />
+      <rect
+        x="20"
+        y="14"
+        width="56"
+        height="7"
+        rx="3.5"
+        fill="#6366F1"
+        opacity="0.9"
+      />
+      <rect
+        x="186"
+        y="16"
+        width="40"
+        height="5"
+        rx="2.5"
+        fill="white"
+        opacity="0.2"
+      />
+      <rect
+        x="240"
+        y="16"
+        width="40"
+        height="5"
+        rx="2.5"
+        fill="white"
+        opacity="0.2"
+      />
+      <rect
+        x="294"
+        y="16"
+        width="40"
+        height="5"
+        rx="2.5"
+        fill="white"
+        opacity="0.2"
+      />
+      <rect
+        x="460"
+        y="12"
+        width="80"
+        height="18"
+        rx="9"
+        fill="#6366F1"
+        opacity="0.8"
+      />
+      {/* Performance badges */}
+      <rect
+        x="16"
+        y="54"
+        width="120"
+        height="40"
+        rx="8"
+        fill="#6366F1"
+        opacity="0.12"
+        stroke="#6366F1"
+        strokeWidth="0.5"
+        strokeOpacity="0.3"
+      />
+      <rect
+        x="26"
+        y="62"
+        width="36"
+        height="5"
+        rx="2.5"
+        fill="white"
+        opacity="0.3"
+      />
+      <rect
+        x="26"
+        y="72"
+        width="60"
+        height="10"
+        rx="4"
+        fill="#6366F1"
+        opacity="0.8"
+      />
+      <rect
+        x="148"
+        y="54"
+        width="120"
+        height="40"
+        rx="8"
+        fill="#6366F1"
+        opacity="0.08"
+        stroke="#6366F1"
+        strokeWidth="0.5"
+        strokeOpacity="0.2"
+      />
+      <rect
+        x="158"
+        y="62"
+        width="36"
+        height="5"
+        rx="2.5"
+        fill="white"
+        opacity="0.3"
+      />
+      <rect
+        x="158"
+        y="72"
+        width="60"
+        height="10"
+        rx="4"
+        fill="#6366F1"
+        opacity="0.6"
+      />
+      {/* Product grid 3×2 */}
+      <rect x="16" y="106" width="162" height="118" rx="8" fill="#12122a" />
+      <rect
+        x="16"
+        y="106"
+        width="162"
+        height="72"
+        rx="8"
+        fill="#6366F1"
+        opacity="0.1"
+      />
+      <rect
+        x="30"
+        y="190"
+        width="100"
+        height="5"
+        rx="2.5"
+        fill="white"
+        opacity="0.3"
+      />
+      <rect
+        x="30"
+        y="200"
+        width="60"
+        height="5"
+        rx="2.5"
+        fill="white"
+        opacity="0.15"
+      />
+      <rect x="192" y="106" width="162" height="118" rx="8" fill="#12122a" />
+      <rect
+        x="192"
+        y="106"
+        width="162"
+        height="72"
+        rx="8"
+        fill="#6366F1"
+        opacity="0.14"
+      />
+      <rect
+        x="206"
+        y="190"
+        width="100"
+        height="5"
+        rx="2.5"
+        fill="white"
+        opacity="0.3"
+      />
+      <rect x="368" y="106" width="176" height="118" rx="8" fill="#12122a" />
+      <rect
+        x="368"
+        y="106"
+        width="176"
+        height="72"
+        rx="8"
+        fill="#6366F1"
+        opacity="0.08"
+      />
+      <rect
+        x="382"
+        y="190"
+        width="100"
+        height="5"
+        rx="2.5"
+        fill="white"
+        opacity="0.3"
+      />
+      {/* Speed metric bar */}
+      <rect x="280" y="54" width="264" height="40" rx="8" fill="#12122a" />
+      <rect
+        x="294"
+        y="64"
+        width="60"
+        height="5"
+        rx="2.5"
+        fill="white"
+        opacity="0.2"
+      />
+      <rect
+        x="294"
+        y="76"
+        width="216"
+        height="8"
+        rx="4"
+        fill="white"
+        opacity="0.06"
+      />
+      <rect
+        x="294"
+        y="76"
+        width="72"
+        height="8"
+        rx="4"
+        fill="#6366F1"
+        opacity="0.8"
+      />
+    </svg>
+  );
+}
+
+/* ─── Thumbnail registry — maps slug → component ───────── */
+const THUMBNAILS: Record<string, () => React.ReactElement> = {
+  "meridian-finance": MeridianThumbnail,
+  "josren-apparel": JosrenThumbnail,
+  "blueshift-saas": BlueshiftThumbnail,
+  axioms: AxiomsThumbnail,
+  "vertex-ai": VertexThumbnail,
+  "hubx-consulting": HubxThumbnail,
+  jovico: JovicoThumbnail,
+  fabrica: FabricaThumbnail,
+  manella: ManellaThumbnail,
+};
+
+function DefaultThumbnail({ color }: { color: string }) {
+  return (
+    <svg
+      viewBox="0 0 560 240"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="absolute inset-0 w-full h-full"
+    >
+      <rect width="560" height="240" fill="#0d1117" />
+      <rect
+        x="180"
+        y="80"
+        width="200"
+        height="80"
+        rx="16"
+        fill={color}
+        opacity="0.12"
+      />
+      <rect
+        x="210"
+        y="108"
+        width="140"
+        height="8"
+        rx="4"
+        fill={color}
+        opacity="0.6"
+      />
+      <rect
+        x="230"
+        y="124"
+        width="100"
+        height="6"
+        rx="3"
+        fill="white"
+        opacity="0.2"
+      />
+    </svg>
+  );
+}
+
+type CaseStudy = {
+  id: string;
+  slug: string;
+  client: string;
   title: string;
-  category: string;
-  desc: string;
-  Thumbnail: () => React.ReactElement;
-  href?: string;
-}> = [
-  {
-    title: "Meridian Finance",
-    category: "Web App · Supabase · Stripe",
-    desc: "Real-time portfolio dashboard with subscription billing and SSO.",
-    Thumbnail: MeridianThumbnail,
-  },
-  {
-    title: "Rova Apparel",
-    category: "E-Commerce · Stripe",
-    desc: "High-conversion storefront with product bundling and upsells.",
-    Thumbnail: RovaThumbnail,
-  },
-  {
-    title: "Blueshift SaaS",
-    category: "Web App · Next.js · Supabase",
-    desc: "Multi-tenant B2B platform with role-based access and API keys.",
-    Thumbnail: BlueshiftThumbnail,
-  },
-  {
-    title: "Axiom Agency",
-    category: "Web Design · Brand",
-    desc: "Brand identity and marketing site — launched in 5 days.",
-    Thumbnail: AxiomThumbnail,
-  },
-  {
-    title: "Vertex AI",
-    category: "AI Product · Automation",
-    desc: "Intelligent workflows and customer insights powered by custom AI.",
-    Thumbnail: VertexThumbnail,
-    href: "/work/vertex-ai",
-  },
-  {
-    title: "Cobalt Consulting",
-    category: "Software Consulting · Scale",
-    desc: "Technical strategy playbook and delivery support for a high-growth SaaS team.",
-    Thumbnail: CobaltThumbnail,
-    href: "/work/cobalt-consulting",
-  },
-];
+  home_category: string | null;
+  home_desc: string | null;
+  color: string;
+};
 
-/* ─── Component ─────────────────────────────────────────── */
+export const revalidate = 60;
 
-import type React from "react";
+export default async function Work() {
+  const { data: projects, error } = await supabaseAdmin
+    .from("case_studies")
+    .select("id, slug, client, title, home_category, home_desc, color")
+    .eq("show_on_home", true)
+    .order("sort_order");
 
-export default function Work() {
+  // Graceful fallback if table doesn't exist yet
+  const list: CaseStudy[] = error ? [] : (projects ?? []);
+
   return (
     <section className="py-28" style={{ background: "var(--bg-surface)" }}>
       <div className="max-w-7xl mx-auto px-6">
@@ -1338,52 +1891,66 @@ export default function Work() {
           </Link>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
-          {PROJECTS.map((project) => {
-            const card = (
-              <div className="card rounded-2xl overflow-hidden cursor-pointer group">
-                <div
-                  className="relative h-56 overflow-hidden"
-                  style={{ background: "#060a0f" }}
-                >
-                  <project.Thumbnail />
-                  <div
-                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                    style={{ background: "rgba(0,0,0,0.12)" }}
-                  />
-                </div>
-                <div className="p-6">
-                  <p
-                    className="text-xs font-medium uppercase tracking-wider mb-2"
-                    style={{ color: "var(--text-muted)" }}
-                  >
-                    {project.category}
-                  </p>
-                  <h3
-                    className="text-xl font-bold mb-2"
-                    style={{ color: "var(--text-primary)" }}
-                  >
-                    {project.title}
-                  </h3>
-                  <p
-                    className="text-sm"
-                    style={{ color: "var(--text-secondary)" }}
-                  >
-                    {project.desc}
-                  </p>
-                </div>
-              </div>
-            );
+        {list.length === 0 ? (
+          <p
+            className="text-center py-20 text-sm"
+            style={{ color: "var(--text-muted)" }}
+          >
+            No projects to display yet.
+          </p>
+        ) : (
+          <div className="grid md:grid-cols-2 gap-6">
+            {list.map((project) => {
+              const Thumbnail = THUMBNAILS[project.slug];
+              const href = `/work/${project.slug}`;
 
-            return project.href ? (
-              <Link key={project.title} href={project.href} className="block">
-                {card}
-              </Link>
-            ) : (
-              <div key={project.title}>{card}</div>
-            );
-          })}
-        </div>
+              const card = (
+                <div className="card rounded-2xl overflow-hidden cursor-pointer group">
+                  <div
+                    className="relative h-56 overflow-hidden"
+                    style={{ background: "#060a0f" }}
+                  >
+                    {Thumbnail ? (
+                      <Thumbnail />
+                    ) : (
+                      <DefaultThumbnail color={project.color} />
+                    )}
+                    <div
+                      className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                      style={{ background: "rgba(0,0,0,0.12)" }}
+                    />
+                  </div>
+                  <div className="p-6">
+                    <p
+                      className="text-xs font-medium uppercase tracking-wider mb-2"
+                      style={{ color: "var(--text-muted)" }}
+                    >
+                      {project.home_category ?? project.client}
+                    </p>
+                    <h3
+                      className="text-xl font-bold mb-2"
+                      style={{ color: "var(--text-primary)" }}
+                    >
+                      {project.client}
+                    </h3>
+                    <p
+                      className="text-sm"
+                      style={{ color: "var(--text-secondary)" }}
+                    >
+                      {project.home_desc ?? project.title}
+                    </p>
+                  </div>
+                </div>
+              );
+
+              return (
+                <Link key={project.id} href={href} className="block">
+                  {card}
+                </Link>
+              );
+            })}
+          </div>
+        )}
       </div>
     </section>
   );

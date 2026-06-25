@@ -492,7 +492,7 @@ export function InvoicesClient({
 
       <Modal
         open={modalOpen}
-        onClose={closeModal}
+        onCloseAction={closeModal}
         title={editing ? "Edit Invoice" : "New Invoice"}
       >
         <InvoiceForm

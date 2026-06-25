@@ -460,7 +460,7 @@ export function ProjectsClient({
       </div>
       <Modal
         open={modalOpen}
-        onClose={closeModal}
+        onCloseAction={closeModal}
         title={editing ? "Edit Project" : "New Project"}
       >
         <ProjectForm

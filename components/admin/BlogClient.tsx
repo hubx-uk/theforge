@@ -413,7 +413,7 @@ export function BlogClient({ posts }: { posts: BlogPost[] }) {
 
       <Modal
         open={modalOpen}
-        onClose={closeModal}
+        onCloseAction={closeModal}
         title={editing ? "Edit Post" : "New Post"}
         wide
       >

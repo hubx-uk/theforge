@@ -4,13 +4,13 @@ import { X } from "lucide-react";
 
 export function Modal({
   open,
-  onClose,
+  onCloseAction,
   title,
   children,
   wide = false,
 }: {
   open: boolean;
-  onClose: () => void;
+  onCloseAction: () => void;
   title: string;
   children: React.ReactNode;
   wide?: boolean;
@@ -18,17 +18,17 @@ export function Modal({
   useEffect(() => {
     if (!open) return;
     const h = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
+      if (e.key === "Escape") onCloseAction();
     };
     document.addEventListener("keydown", h);
     return () => document.removeEventListener("keydown", h);
-  }, [open, onClose]);
+  }, [open, onCloseAction]);
   if (!open) return null;
   return (
     <div className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto py-16 px-4">
       <div
         className="fixed inset-0 bg-black/60 backdrop-blur-sm"
-        onClick={onClose}
+        onClick={onCloseAction}
       />
       <div
         className={`relative z-10 w-full ${wide ? "max-w-2xl" : "max-w-lg"} rounded-2xl`}
@@ -49,7 +49,7 @@ export function Modal({
             {title}
           </h2>
           <button
-            onClick={onClose}
+            onClick={onCloseAction}
             className="w-8 h-8 rounded-lg flex items-center justify-center"
             style={{
               color: "var(--text-muted)",
