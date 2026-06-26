@@ -100,7 +100,7 @@ export default function CTA() {
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
                 placeholder="Your name"
-                className="forge-input"
+                className="forge-input pr-10"
               />
             </div>
             <div className="flex flex-col gap-2">

@@ -10,6 +10,7 @@ create table if not exists case_studies (
   client        text        not null,                  -- Display client name
   title         text        not null,                  -- Case-study headline
   description   text        not null,                  -- Short summary paragraph
+  body          text        not null default '',       -- Long-form case-study content
   industry      text        not null,                  -- e.g. "E-Mobility / Clean Energy"
   tier          text        not null default 'custom'
                             check (tier in ('Spark','Ember','Blaze','Inferno','Custom')),

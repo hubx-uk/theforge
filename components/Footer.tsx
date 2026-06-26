@@ -48,8 +48,8 @@ export default function Footer({
       }}
     >
       <div className="max-w-7xl mx-auto px-6 py-16">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-6 gap-10 mb-12">
-          <div className="flex flex-col gap-4">
+        <div className="grid grid-cols-2 lg:grid-cols-6 gap-10 mb-12">
+          <div className="col-span-2 lg:col-span-1 flex flex-col gap-4">
             <Link
               href="/"
               className="flex items-center gap-2"

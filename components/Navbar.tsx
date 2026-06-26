@@ -260,6 +260,10 @@ export default function Navbar() {
           className="relative flex items-center gap-5 mx-auto"
           aria-label="Main navigation"
         >
+          <Link href="/about" className="nav-link">
+            About
+          </Link>
+
           <div
             className="static"
             onMouseEnter={() => open("services")}
@@ -359,10 +363,6 @@ export default function Navbar() {
               </div>
             )}
           </div>
-
-          <Link href="/about" className="nav-link">
-            About
-          </Link>
 
           <div
             className="static"

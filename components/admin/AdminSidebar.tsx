@@ -15,6 +15,7 @@ import {
   ChevronRight,
   MessageSquare,
   FileText,
+  BookOpen,
 } from "lucide-react";
 
 const NAV = [
@@ -23,6 +24,7 @@ const NAV = [
   { href: "/admin/clients", icon: Users, label: "Clients" },
   { href: "/admin/invoices", icon: Receipt, label: "Invoices" },
   { href: "/admin/enquiries", icon: MessageSquare, label: "Enquiries" },
+  { href: "/admin/case-studies", icon: BookOpen, label: "Case Studies" },
   { href: "/admin/blog", icon: FileText, label: "Blog" },
   { href: "/admin/settings", icon: Settings, label: "Settings" },
 ];
