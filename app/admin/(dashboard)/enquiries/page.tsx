@@ -3,7 +3,7 @@ import { requireAdminSession } from "@/lib/adminAuth";
 import { supabaseAdmin } from "@/lib/supabaseAdmin";
 import { EnquiriesClient } from "@/components/admin/EnquiriesClient";
 
-export const metadata: Metadata = { title: "Enquiries — theforge Admin" };
+export const metadata: Metadata = { title: "Enquiries • theforge Admin" };
 
 export default async function AdminEnquiriesPage() {
   await requireAdminSession();

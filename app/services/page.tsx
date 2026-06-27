@@ -14,7 +14,7 @@ import {
 import PageShell from "@/components/PageShell";
 import CTA from "@/components/CTA";
 
-export const metadata: Metadata = { title: "Services — theforge" };
+export const metadata: Metadata = { title: "Services • theforge" };
 
 const GROUPS = [
   {

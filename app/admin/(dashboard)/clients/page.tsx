@@ -4,7 +4,7 @@ import { supabaseAdmin } from '@/lib/supabaseAdmin';
 import { formatDate } from '@/lib/utils';
 import { Plus, Building2, Mail, Phone } from 'lucide-react';
 
-export const metadata: Metadata = { title: 'Clients — theforge Admin' };
+export const metadata: Metadata = { title: 'Clients • theforge Admin' };
 
 interface ClientRow {
   id: string;
@@ -84,7 +84,7 @@ import { requireAdminSession } from "@/lib/adminAuth";
 import { supabaseAdmin } from "@/lib/supabaseAdmin";
 import { ClientsClient } from "@/components/admin/ClientsClient";
 
-export const metadata: Metadata = { title: "Clients — theforge Admin" };
+export const metadata: Metadata = { title: "Clients • theforge Admin" };
 
 export default async function AdminClientsPage() {
   await requireAdminSession();

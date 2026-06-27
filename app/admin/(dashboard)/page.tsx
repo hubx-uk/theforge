@@ -15,7 +15,7 @@ import {
   MessageSquare,
 } from "lucide-react";
 
-export const metadata: Metadata = { title: "Dashboard — theforge Admin" };
+export const metadata: Metadata = { title: "Dashboard • theforge Admin" };
 
 export default async function AdminDashboard() {
   const session = await requireAdminSession();

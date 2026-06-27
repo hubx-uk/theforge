@@ -4,7 +4,7 @@ import { ArrowRight, CircleHelp, Mail, MessageSquareText } from "lucide-react";
 import PageShell from "@/components/PageShell";
 
 export const metadata: Metadata = {
-  title: "Help & FAQs — theforge",
+  title: "Help & FAQs • theforge",
   description:
     "Answers about theforge services, projects, billing, support, ownership and client portal.",
 };

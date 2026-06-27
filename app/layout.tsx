@@ -3,7 +3,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/context/ThemeContext";
 
 export const metadata: Metadata = {
-  title: "theforge — Software & Digital Marketing Studio",
+  title: "theforge • Software & Digital Marketing Studio",
   description:
     "theforge builds the software and digital marketing systems small and mid-sized businesses run on — websites, web apps, e-commerce, SEO, and brand work for clients worldwide.",
   keywords: [
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     "SMB",
   ],
   openGraph: {
-    title: "theforge — Software & Digital Marketing Studio",
+    title: "theforge • Software & Digital Marketing Studio",
     description:
       "Software and digital marketing systems for small and medium-sized businesses worldwide.",
     url: "https://theforge.ng",

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import PageShell from "@/components/PageShell";
 import CTA from "@/components/CTA";
 
-export const metadata: Metadata = { title: "Pricing — theforge" };
+export const metadata: Metadata = { title: "Pricing • theforge" };
 
 const TIERS = [
   {

@@ -3,7 +3,7 @@ import { requireAdminSession } from "@/lib/adminAuth";
 import { supabaseAdmin } from "@/lib/supabaseAdmin";
 import { BlogClient } from "@/components/admin/BlogClient";
 
-export const metadata: Metadata = { title: "Blog — theforge Admin" };
+export const metadata: Metadata = { title: "Blog • theforge Admin" };
 
 export default async function AdminBlogPage() {
   await requireAdminSession();

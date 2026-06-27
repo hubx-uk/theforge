@@ -4,7 +4,7 @@ import { supabaseAdmin } from '@/lib/supabaseAdmin';
 import { formatDate, formatUSD, INVOICE_STATUS_LABEL } from '@/lib/utils';
 import { Plus } from 'lucide-react';
 
-export const metadata: Metadata = { title: 'Invoices — theforge Admin' };
+export const metadata: Metadata = { title: 'Invoices • theforge Admin' };
 
 const STATUS_COLOR: Record<string, string> = {
   draft: '#6B7280', sent: '#3B82F6', paid: '#10B981', overdue: '#EF4444', void: '#4B5563',
@@ -103,7 +103,7 @@ import { requireAdminSession } from "@/lib/adminAuth";
 import { supabaseAdmin } from "@/lib/supabaseAdmin";
 import { InvoicesClient } from "@/components/admin/InvoicesClient";
 
-export const metadata: Metadata = { title: "Invoices — theforge Admin" };
+export const metadata: Metadata = { title: "Invoices • theforge Admin" };
 
 export default async function AdminInvoicesPage() {
   await requireAdminSession();

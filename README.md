@@ -201,4 +201,4 @@ environment variables from `.env.example` in the Vercel project settings.
 
 ## License
 
-MIT — theforge
+MIT • theforge

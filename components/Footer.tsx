@@ -42,12 +42,30 @@ export default function Footer({
 }) {
   return (
     <footer
+      className="relative overflow-hidden"
       style={{
         borderTop: "1px solid var(--border)",
         background: "var(--bg-base)",
       }}
     >
-      <div className="max-w-7xl mx-auto px-6 py-16">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 bottom-3 select-none"
+      >
+        <span
+          className="block translate-y-[18%] whitespace-nowrap text-center font-black leading-none"
+          style={{
+            color: "var(--pumpkin)",
+            fontSize: "clamp(5rem, 24vw, 24rem)",
+            letterSpacing: "0",
+            opacity: 0.055,
+          }}
+        >
+          theforge
+        </span>
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-16">
         <div className="grid grid-cols-2 lg:grid-cols-6 gap-10 mb-12">
           <div className="col-span-2 lg:col-span-1 flex flex-col gap-4">
             <Link

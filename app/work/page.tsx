@@ -4,7 +4,7 @@ import PageShell from "@/components/PageShell";
 import CTA from "@/components/CTA";
 import { supabaseAdmin } from "@/lib/supabaseAdmin";
 
-export const metadata: Metadata = { title: "Work — theforge" };
+export const metadata: Metadata = { title: "Work • theforge" };
 export const revalidate = 60;
 
 const TIER_COLOR: Record<string, string> = {
@@ -18,23 +18,23 @@ const TIER_COLOR: Record<string, string> = {
 const INDUSTRY_EMOJI: Record<string, string> = {
   "E-Mobility": "⚡",
   "Clean Energy": "⚡",
-  "Construction": "🏗️",
-  "Infrastructure": "🏗️",
+  Construction: "🏗️",
+  Infrastructure: "🏗️",
   "E-Commerce": "🛍️",
-  "DTC": "🛍️",
-  "Retail": "🛍️",
-  "SaaS": "🤖",
-  "AI": "🤖",
-  "Fintech": "📊",
-  "Consulting": "💼",
-  "B2B": "🏢",
-  "Design": "🎨",
-  "Creative": "🎨",
+  DTC: "🛍️",
+  Retail: "🛍️",
+  SaaS: "🤖",
+  AI: "🤖",
+  Fintech: "📊",
+  Consulting: "💼",
+  B2B: "🏢",
+  Design: "🎨",
+  Creative: "🎨",
 };
 
 function getEmoji(industry: string): string {
   const entry = Object.entries(INDUSTRY_EMOJI).find(([key]) =>
-    industry.toLowerCase().includes(key.toLowerCase())
+    industry.toLowerCase().includes(key.toLowerCase()),
   );
   return entry ? entry[1] : "💼";
 }
@@ -71,7 +71,10 @@ export default async function WorkPage() {
 
       <section className="max-w-5xl mx-auto px-6 pb-24">
         {list.length === 0 ? (
-          <p className="text-center py-20 text-sm" style={{ color: "var(--text-muted)" }}>
+          <p
+            className="text-center py-20 text-sm"
+            style={{ color: "var(--text-muted)" }}
+          >
             No case studies published yet. Check back soon!
           </p>
         ) : (
@@ -149,7 +152,10 @@ export default async function WorkPage() {
                 </div>
 
                 <div className="shrink-0 self-center">
-                  <span className="text-sm font-bold" style={{ color: "var(--accent)" }}>
+                  <span
+                    className="text-sm font-bold"
+                    style={{ color: "var(--accent)" }}
+                  >
                     Read →
                   </span>
                 </div>

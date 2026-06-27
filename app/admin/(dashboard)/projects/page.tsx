@@ -4,7 +4,7 @@ import { supabaseAdmin } from '@/lib/supabaseAdmin';
 import { formatDate, formatUSD, PROJECT_STATUS_LABEL } from '@/lib/utils';
 import { Plus } from 'lucide-react';
 
-export const metadata: Metadata = { title: 'Projects — theforge Admin' };
+export const metadata: Metadata = { title: 'Projects • theforge Admin' };
 
 const STATUS_COLOR: Record<string, string> = {
   discovery: '#6366F1', in_progress: '#F59E0B', review: '#3B82F6', completed: '#10B981', on_hold: '#6B7280',
@@ -90,7 +90,7 @@ import { requireAdminSession } from "@/lib/adminAuth";
 import { supabaseAdmin } from "@/lib/supabaseAdmin";
 import { ProjectsClient } from "@/components/admin/ProjectsClient";
 
-export const metadata: Metadata = { title: "Projects — theforge Admin" };
+export const metadata: Metadata = { title: "Projects • theforge Admin" };
 
 export default async function AdminProjectsPage() {
   await requireAdminSession();
