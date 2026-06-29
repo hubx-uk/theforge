@@ -10,12 +10,14 @@ import {
   FileText,
   Gauge,
   Megaphone,
+  Menu,
   PanelsTopLeft,
   Rocket,
   Search,
   ShoppingBag,
   Smartphone,
   Workflow,
+  X,
 } from "lucide-react";
 import { useTheme } from "@/context/ThemeContext";
 import ForgeLogo from "./ForgeLogo";
@@ -545,7 +547,7 @@ export default function Navbar() {
       </div>
 
       <div
-        className={`lg:hidden flex items-center justify-between px-4 mx-4 ${menuOpen ? "rounded-t-3xl" : "rounded-full"}`}
+        className={`lg:hidden flex items-center justify-between px-4 ${scrolled ? "mx-4" : ""} ${menuOpen ? "rounded-t-3xl" : "rounded-full"}`}
         style={{
           pointerEvents: "auto",
           height: 54,
@@ -583,7 +585,7 @@ export default function Navbar() {
             aria-label="Toggle navigation"
             aria-expanded={menuOpen}
           >
-            {[0, 1, 2].map((i) => (
+            {/* {[0, 1, 2].map((i) => (
               <span
                 key={i}
                 className="block w-5 h-0.5 transition-all duration-300"
@@ -599,14 +601,19 @@ export default function Navbar() {
                   opacity: menuOpen && i === 1 ? 0 : 1,
                 }}
               />
-            ))}
+            ))} */}
+            {menuOpen ? (
+              <X className="w-5 h-5" />
+            ) : (
+              <Menu className="w-5 h-5" />
+            )}
           </button>
         </div>
       </div>
 
       {menuOpen && (
         <div
-          className="lg:hidden mx-4 max-h-[calc(100vh-88px)] overflow-y-auto rounded-b-3xl px-4 pb-5 pt-3"
+          className={`lg:hidden ${scrolled ? "mx-4" : ""} max-h-[calc(100vh-88px)] overflow-y-auto rounded-b-3xl px-4 pb-5 pt-3`}
           style={{
             pointerEvents: "auto",
             background: "var(--bg-surface)",
@@ -614,6 +621,17 @@ export default function Navbar() {
             borderTop: 0,
           }}
         >
+          <Link
+            href="/about"
+            className="block border-b px-2 py-3.5 text-sm font-semibold"
+            style={{
+              color: "var(--text-primary)",
+              borderColor: "var(--border)",
+            }}
+            onClick={closeMobile}
+          >
+            About
+          </Link>
           <MobileSection
             label="Services"
             open={mobileSection === "services"}
@@ -645,17 +663,6 @@ export default function Navbar() {
               </div>
             ))}
           </MobileSection>
-          <Link
-            href="/about"
-            className="block border-b px-2 py-3.5 text-sm font-semibold"
-            style={{
-              color: "var(--text-primary)",
-              borderColor: "var(--border)",
-            }}
-            onClick={closeMobile}
-          >
-            About
-          </Link>
           <MobileSection
             label="Work"
             open={mobileSection === "work"}
